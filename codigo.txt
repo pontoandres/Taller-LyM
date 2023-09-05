@@ -1,0 +1,21 @@
+DefVar nom 0
+DefVar x 0
+defVar y 0
+DefVar one 0
+
+deProc putCB(c,b)
+{
+	drop(c);
+	letGo(b);
+	walk(nom)
+}
+
+defProc goNorth()
+{
+	while can(walk(1, north)) { walk(1, north)}
+}
+
+defProc goWest()
+{
+	if can(walk(1, west)) { walk(1, west); goWest()} else {nop()}
+}
