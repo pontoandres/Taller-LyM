@@ -27,7 +27,17 @@ print(s)
 tokens = tokenizar(patron, s)
 print(tokens)
 
-
+def checksyntax(tokens):
+    
+    check_defvar(tokens)
+    checkwalk(tokens)
+    checkjump(tokens)
+    checkleap(tokens)
+    checkturn(tokens)
+    checkturnto(tokens)
+    checkdrop(tokens)
+    
+    
 
 def checkwalk (tokens):
     direcciones = ["front", "right", "left", "back"]
