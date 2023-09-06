@@ -1,5 +1,6 @@
 import re
-
+# Jose Miguel Alvear - 202010602
+# Ponto Andres Moreno - 202224525
 
 def cargar_archivo()-> str:
     codigo = ""
