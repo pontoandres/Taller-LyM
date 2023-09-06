@@ -32,17 +32,17 @@ def checksyntax(tokens):
     
     errores = 0
     
-    check_defvar(tokens ,errores)
-    checkwalk(tokens, errores)
-    checkjump(tokens, errores)
-    checkleap(tokens, errores)
-    checkturn(tokens, errores)
-    checkturnto(tokens, errores)
-    checkdrop(tokens, errores)
-    checkget(tokens, errores)
-    checkgrab(tokens, errores)
-    checkletGo(tokens, errores)
-    checkfacing(tokens, errores)
+    errores = check_defvar(tokens ,errores)
+    errores = checkwalk(tokens, errores)
+    errores = checkjump(tokens, errores)
+    errores = checkleap(tokens, errores)
+    errores = checkturn(tokens, errores)
+    errores = checkturnto(tokens, errores)
+    errores = checkdrop(tokens, errores)
+    errores = checkget(tokens, errores)
+    errores = checkgrab(tokens, errores)
+    errores = checkletGo(tokens, errores)
+    errores = checkfacing(tokens, errores)
     
     print("EL numero de errores encontrados es: ", errores)
     
