@@ -51,9 +51,7 @@ def checkwalk (tokens):
                 p = int(tokens[i+2])
             except:
                 p = None
-            if (p is not None):
-                print("El walk está bien")
-            else:
+            if (p is None):
                 print("Error")  
             if tokens[i+1] is not ("("):
                 print("Falta '('")
@@ -76,9 +74,7 @@ def checkjump (tokens):
             except:
                 p = None
                 q = None
-            if (p is not None) and (q is not None):
-                print("El jump está bien")
-            else:
+            if (p is None) and (q is None):
                 print("Error")  
             if tokens[i+1] is not ("("):
                 print("Falta '('")
@@ -112,9 +108,7 @@ def checkleap (tokens):
                 p = int(tokens[i+2])
             except:
                 p = None
-            if (p is not None):
-                print("El drop está bien")
-            else:
+            if (p is None):
                 print("Error")  
             if tokens[i+1] is not ("("):
                 print("Falta '('")
@@ -153,9 +147,7 @@ def checkdrop (tokens):
                 p = int(tokens[i+2])
             except:
                 p = None
-            if (p is not None):
-                print("El drop está bien")
-            else:
+            if (p is None):
                 print("Error")  
             if tokens[i+1] is not ("("):
                 print("Falta '('")
@@ -170,9 +162,7 @@ def checkget (tokens):
                 p = int(tokens[i+2])
             except:
                 p = None
-            if (p is not None):
-                print("El get está bien")
-            else:
+            if (p is None):
                 print("Error")  
             if tokens[i+1] is not ("("):
                 print("Falta '('")
@@ -187,9 +177,7 @@ def checkgrab (tokens):
                 p = int(tokens[i+2])
             except:
                 p = None
-            if (p is not None):
-                print("El grab está bien")
-            else:
+            if (p is None):
                 print("Error")  
             if tokens[i+1] is not ("("):
                 print("Falta '('")
@@ -204,9 +192,7 @@ def checkletGo (tokens):
                 p = int(tokens[i+2])
             except:
                 p = None
-            if (p is not None):
-                print("El letGo está bien")
-            else:
+            if (p is None):
                 print("Error")  
             if tokens[i+1] is not ("("):
                 print("Falta '('")
