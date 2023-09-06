@@ -94,9 +94,7 @@ def check_defvar (tokens):
                     p = int(tokens[i+2])
                 except:
                     p = None
-                if p is not None:
-                    print("El defVar esta bien")
-                else:
+                if p is None:
                     print("Error") 
     return None
 
