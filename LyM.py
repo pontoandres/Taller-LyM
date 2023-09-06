@@ -36,50 +36,30 @@ def checksyntax(tokens):
     checkturn(tokens)
     checkturnto(tokens)
     checkdrop(tokens)
+    checkget(tokens)
+    checkgrab(tokens)
+    checkletGo(tokens)
+    checkfacing(tokens)
     
     
 
 def checkwalk (tokens):
-    direcciones = ["front", "right", "left", "back"]
-    cardinales = ["north", "south", "west", "east"]
     l = len(tokens)
-    i = 0
-    while i <l :       
+    for i in range(0, l):
         if tokens[i] == "walk":
-            if tokens[i+1] is not "(":
-                error = True
-                print("Falta '('")
-                #print(tokens[i] + tokens[i+1] + str(tokens[i+2]) + tokens[i+3] + tokens[i+4])
-                i += 1
+            try:
+                p = int(tokens[i+2])
+            except:
+                p = None
+            if (p is not None):
+                print("El walk está bien")
             else:
-                a = i
-                #a = posicion de (
-                try:
-                    p = int(tokens[i+2])
-                except:
-                    p = None
-                if p is None:
-                    error = True
-                    print("Error de numero") 
-                    #print(tokens[i] + tokens[i+1] + str(tokens[i+2]) + tokens[i+3] + tokens[i+4])
-                    i += 1                                  
-                if tokens[i+3] is not ")":
-                    if  (tokens[i+3] not in direcciones) or (tokens[i+3] not in cardinales):
-                        error = True
-                        print("direccion")
-                        print(tokens[i] + tokens[i+1] + str(tokens[i+2]) + tokens[i+3] + tokens[i+4])
-                        i += 1
-                    if tokens[i+4] is not ")":
-                        error = True
-                        print(")")
-                        #print(tokens[i] + tokens[i+1] + str(tokens[i+2]) + tokens[i+3] + tokens[i+4])
-                        i += 1
-                    else:
-                        i += 1  # Avanzar al siguiente conjunto de tokens
-                else:
-                    i += 1  # Avanzar al siguiente conjunto de tokens
-        else:
-            i += 1  # Avanzar al siguiente token si no es "walk"
+                print("Error")  
+            if tokens[i+1] is not ("("):
+                print("Falta '('")
+            if tokens[i+3] is not (")"):
+                if tokens[i+3] is not ("north" or "south" or "east" or "west" or "left" or "right" or "front" or "back"):
+                    print("error de direccion")
                 
 
 
@@ -129,14 +109,18 @@ def checkleap (tokens):
     for i in range(0, l):
         if tokens[i] == "leap":
             try:
-                p = int(tokens[i+1])
+                p = int(tokens[i+2])
             except:
                 p = None
-            if p is not None:
-                print("El walk esta bien")
+            if (p is not None):
+                print("El drop está bien")
             else:
-                print("Error")            
-    return None
+                print("Error")  
+            if tokens[i+1] is not ("("):
+                print("Falta '('")
+            if tokens[i+3] is not (")"):
+                if tokens[i+3] is not ("north" or "south" or "east" or "west" or "left" or "right" or "front" or "back"):
+                    print("error de direccion")
 
 def checkturn (tokens):
     l = len(tokens)
@@ -160,27 +144,11 @@ def checkturnto (tokens):
             if tokens[i+3] is not (")"):
                 print("Falta ')'")
 
+
 def checkdrop (tokens):
     l = len(tokens)
     for i in range(0, l):
-        if tokens[i] == "jump":
-            try:
-                p = int(tokens[i+2])
-            except:
-                p = None
-            if (p is not None):
-                print("El drop está bien")
-            else:
-                print("Error")  
-            if tokens[i+1] is not ("("):
-                print("Falta '('")
-            if tokens[i+3] is not (")"):
-                print("Falta ')'")
-                
-def checkdrop (tokens):
-    l = len(tokens)
-    for i in range(0, l):
-        if tokens[i] == "jump":
+        if tokens[i] == "drop":
             try:
                 p = int(tokens[i+2])
             except:
@@ -194,5 +162,66 @@ def checkdrop (tokens):
             if tokens[i+3] is not (")"):
                 print("Falta ')'")
 
-check_defvar(tokens)
-checkwalk(tokens)
+def checkget (tokens):
+    l = len(tokens)
+    for i in range(0, l):
+        if tokens[i] == "get":
+            try:
+                p = int(tokens[i+2])
+            except:
+                p = None
+            if (p is not None):
+                print("El get está bien")
+            else:
+                print("Error")  
+            if tokens[i+1] is not ("("):
+                print("Falta '('")
+            if tokens[i+3] is not (")"):
+                print("Falta ')'")
+
+def checkgrab (tokens):
+    l = len(tokens)
+    for i in range(0, l):
+        if tokens[i] == "grab":
+            try:
+                p = int(tokens[i+2])
+            except:
+                p = None
+            if (p is not None):
+                print("El grab está bien")
+            else:
+                print("Error")  
+            if tokens[i+1] is not ("("):
+                print("Falta '('")
+            if tokens[i+3] is not (")"):
+                print("Falta ')'")
+
+def checkletGo (tokens):
+    l = len(tokens)
+    for i in range(0, l):
+        if tokens[i] == "letGo":
+            try:
+                p = int(tokens[i+2])
+            except:
+                p = None
+            if (p is not None):
+                print("El letGo está bien")
+            else:
+                print("Error")  
+            if tokens[i+1] is not ("("):
+                print("Falta '('")
+            if tokens[i+3] is not (")"):
+                print("Falta ')'")
+
+def checkfacing (tokens):
+    l = len(tokens)
+    for i in range(0, l):
+        if tokens[i] == "facing":
+            if  tokens[i+2] is not ("north" or "south" or "east" or "west"):
+                print("Error de direccion") 
+            if tokens[i+1] is not ("("):
+                print("Falta '('")
+            if tokens[i+3] is not (")"):
+                print("Falta ')'")
+
+checksyntax(tokens)
